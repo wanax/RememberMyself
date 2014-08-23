@@ -10,6 +10,7 @@
 #import "PresentingAnimator.h"
 #import "DismissingAnimator.h"
 #import "LoginGrade2VC.h"
+#import "UserRegisterVC.h"
 
 @interface UserLoginVC() <UIViewControllerTransitioningDelegate>
 
@@ -47,7 +48,7 @@
 - (void)addRegsiterButton {
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button setTitle:@"Regiter Now" forState:UIControlStateNormal];
+    [button setTitle:@"Register Now" forState:UIControlStateNormal];
     [button setTitleColor:[UIColor concreteColor] forState:UIControlStateNormal];
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     [button setBackgroundColor:[UIColor whiteColor]];
@@ -58,14 +59,22 @@
     
 }
 
-- (void)buttongTouched:(NSString *)type {
+- (void)buttongTouched:(UIButton *)button {
     
-    LoginGrade2VC *login2VC = [LoginGrade2VC new];
-    login2VC.transitioningDelegate = self;
-    login2VC.modalPresentationStyle = UIModalPresentationCustom;
-    
-    [self presentViewController:login2VC animated:YES completion:nil];
-    
+    NSString *title = button.titleLabel.text;
+    if ([title isEqualToString:@"Login"]) {
+        LoginGrade2VC *login2VC = [LoginGrade2VC new];
+        login2VC.transitioningDelegate = self;
+        login2VC.modalPresentationStyle = UIModalPresentationCustom;
+        
+        [self presentViewController:login2VC animated:YES completion:nil];
+    } else if ([title isEqualToString:@"Register Now"]) {
+        UserRegisterVC *registerVC = [UserRegisterVC new];
+        registerVC.transitioningDelegate = self;
+        registerVC.modalPresentationStyle = UIModalPresentationCustom;
+        
+        [self presentViewController:registerVC animated:YES completion:nil];
+    }
 }
 
 - (void)addLabel {
@@ -74,7 +83,7 @@
     label.font = [UIFont fontWithName:@"Avenir-Light" size:20];
     label.textColor = [UIColor blackColor];
     label.translatesAutoresizingMaskIntoConstraints = NO;
-    label.text = @"RemeberMyself";
+    label.text = @"RememberMyself";
     label.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:label];
     

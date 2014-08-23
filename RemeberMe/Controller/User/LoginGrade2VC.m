@@ -90,7 +90,23 @@
 
 - (void)dismiss:(id)sender
 {
-    [self dismissViewControllerAnimated:YES completion:NULL];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{
+                                 @"name": self.nameTextField.text,
+                                 @"pwd": self.pwdTextField.text
+                                 };
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    [manager POST:@"http://localhost:8000/users/user_login/" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject[@"state"] isEqual:@"success"]) {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        } else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Login Error" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
 }
 
 @end
