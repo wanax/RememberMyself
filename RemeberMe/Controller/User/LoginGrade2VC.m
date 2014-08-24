@@ -7,6 +7,7 @@
 //
 
 #import "LoginGrade2VC.h"
+#import "UserLoginVC.h"
 
 @interface LoginGrade2VC() <UITextFieldDelegate>
 
@@ -98,7 +99,9 @@
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     [manager POST:@"http://localhost:8000/users/user_login/" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([responseObject[@"state"] isEqual:@"success"]) {
-            [self dismissViewControllerAnimated:YES completion:nil];
+            [self dismissViewControllerAnimated:YES completion:^{
+                [self.parentVC dismissViewControllerAnimated:YES completion:nil];
+            }];
         } else {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Login Error" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert show];

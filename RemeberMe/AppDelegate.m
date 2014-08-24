@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 #import "UserLoginVC.h"
+#import "IndexVC.h"
 
 @implementation AppDelegate
 
@@ -16,10 +17,10 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    //ViewController *vc = [[ViewController alloc] init];
-    UserLoginVC *vc = [[UserLoginVC alloc] init];
+    IndexVC *index = [[IndexVC alloc] init];
+    UINavigationController *baseNC = [[UINavigationController alloc] initWithRootViewController:index];
     
-    [self.window setRootViewController:vc];
+    [self.window setRootViewController:baseNC];
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.tintColor = [UIColor purpleColor];
     [self.window makeKeyAndVisible];

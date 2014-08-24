@@ -31,6 +31,7 @@
 		AB7E4E7D19A61FF7005D9AFB /* DismissingAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7E4E7A19A61FF7005D9AFB /* DismissingAnimator.m */; };
 		AB7E4E7E19A61FF7005D9AFB /* PresentingAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7E4E7C19A61FF7005D9AFB /* PresentingAnimator.m */; };
 		AB7E4E8019A62885005D9AFB /* Logo2.png in Resources */ = {isa = PBXBuildFile; fileRef = AB7E4E7F19A62885005D9AFB /* Logo2.png */; };
+		AB9FD26319A9A19F00D3B359 /* IndexVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9FD26219A9A19F00D3B359 /* IndexVC.m */; };
 		ABD21F3D19A4D4530063FE3A /* CircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD21F3419A4D4530063FE3A /* CircleView.m */; };
 		ABD21F3E19A4D4530063FE3A /* FlatButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD21F3619A4D4530063FE3A /* FlatButton.m */; };
 		ABD21F3F19A4D4530063FE3A /* ImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD21F3819A4D4530063FE3A /* ImageView.m */; };
@@ -88,6 +89,8 @@
 		AB7E4E7B19A61FF7005D9AFB /* PresentingAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentingAnimator.h; sourceTree = "<group>"; };
 		AB7E4E7C19A61FF7005D9AFB /* PresentingAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentingAnimator.m; sourceTree = "<group>"; };
 		AB7E4E7F19A62885005D9AFB /* Logo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo2.png; sourceTree = "<group>"; };
+		AB9FD26119A9A19F00D3B359 /* IndexVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexVC.h; sourceTree = "<group>"; };
+		AB9FD26219A9A19F00D3B359 /* IndexVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexVC.m; sourceTree = "<group>"; };
 		ABD21F3319A4D4530063FE3A /* CircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleView.h; sourceTree = "<group>"; };
 		ABD21F3419A4D4530063FE3A /* CircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleView.m; sourceTree = "<group>"; };
 		ABD21F3519A4D4530063FE3A /* FlatButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatButton.h; sourceTree = "<group>"; };
@@ -226,6 +229,7 @@
 		AB7E4E5E19A60E50005D9AFB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				AB9FD26019A9A18F00D3B359 /* Index */,
 				AB7E4E5F19A60E50005D9AFB /* User */,
 			);
 			path = Controller;
@@ -284,6 +288,15 @@
 				AB7E4E7C19A61FF7005D9AFB /* PresentingAnimator.m */,
 			);
 			path = Animator;
+			sourceTree = "<group>";
+		};
+		AB9FD26019A9A18F00D3B359 /* Index */ = {
+			isa = PBXGroup;
+			children = (
+				AB9FD26119A9A19F00D3B359 /* IndexVC.h */,
+				AB9FD26219A9A19F00D3B359 /* IndexVC.m */,
+			);
+			path = Index;
 			sourceTree = "<group>";
 		};
 		ABD21F3219A4D4530063FE3A /* Controls */ = {
@@ -461,6 +474,7 @@
 				ABD21F3F19A4D4530063FE3A /* ImageView.m in Sources */,
 				ABD21F3E19A4D4530063FE3A /* FlatButton.m in Sources */,
 				AB7E4E6C19A6106F005D9AFB /* UIFont+FlatUI.m in Sources */,
+				AB9FD26319A9A19F00D3B359 /* IndexVC.m in Sources */,
 				AB7E4E7E19A61FF7005D9AFB /* PresentingAnimator.m in Sources */,
 				AB7E4E7019A611CC005D9AFB /* UserLoginVC.m in Sources */,
 			);

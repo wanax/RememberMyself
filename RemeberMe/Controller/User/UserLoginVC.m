@@ -14,6 +14,9 @@
 
 @interface UserLoginVC() <UIViewControllerTransitioningDelegate>
 
+@property (nonatomic) LoginGrade2VC *login2VC;
+@property (nonatomic) UserRegisterVC *registerVC;
+
 @end
 
 @implementation UserLoginVC
@@ -23,6 +26,16 @@
     
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor cloudsColor];
+    
+    self.login2VC = [LoginGrade2VC new];
+    self.login2VC.transitioningDelegate = self;
+    self.login2VC.modalPresentationStyle = UIModalPresentationCustom;
+    self.login2VC.parentVC = self;
+    
+    self.registerVC = [UserRegisterVC new];
+    self.registerVC.transitioningDelegate = self;
+    self.registerVC.modalPresentationStyle = UIModalPresentationCustom;
+    
     
     [self addLogo];
     [self addLoginButton];
@@ -63,17 +76,11 @@
     
     NSString *title = button.titleLabel.text;
     if ([title isEqualToString:@"Login"]) {
-        LoginGrade2VC *login2VC = [LoginGrade2VC new];
-        login2VC.transitioningDelegate = self;
-        login2VC.modalPresentationStyle = UIModalPresentationCustom;
         
-        [self presentViewController:login2VC animated:YES completion:nil];
+        [self presentViewController:self.login2VC animated:YES completion:nil];
     } else if ([title isEqualToString:@"Register Now"]) {
-        UserRegisterVC *registerVC = [UserRegisterVC new];
-        registerVC.transitioningDelegate = self;
-        registerVC.modalPresentationStyle = UIModalPresentationCustom;
         
-        [self presentViewController:registerVC animated:YES completion:nil];
+        [self presentViewController:self.registerVC animated:YES completion:nil];
     }
 }
 
