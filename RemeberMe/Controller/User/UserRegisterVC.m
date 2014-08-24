@@ -93,24 +93,24 @@
 
 - (void)dismiss:(id)sender
 {
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSDictionary *parameters = @{
-                                 @"name": self.nameTextField.text,
-                                 @"pwd": self.pwdTextField.text,
-                                 @"email": self.emailTextField.text
-                                 };
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-    [manager POST:@"http://localhost:8000/users/add_user/" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if ([responseObject[@"state"] isEqual:@"success"]) {
+    
+    NSDictionary *params = @{
+                             @"name": self.nameTextField.text,
+                             @"pwd": self.pwdTextField.text,
+                             @"email": self.emailTextField.text
+                             };
+    
+    NSString *url = [NSString stringWithFormat:@"%@%@",GetConfigure(@"request_url",@"BaseURL",NO),
+                     GetConfigure(@"request_url",@"AddUser",NO)];
+    [Tool postNetInfoWithPath:url andParams:params besidesBlock:^(id obj) {
+        if ([obj[@"state"] isEqual:@"success"]) {
             [self dismissViewControllerAnimated:YES completion:nil];
         } else {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Register Error" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert show];
         }
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-    }];
+    } failure:nil];
+
 }
 
 @end

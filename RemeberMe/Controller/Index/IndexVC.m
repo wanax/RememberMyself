@@ -23,7 +23,7 @@
     [super viewDidLoad];
     self.title = @"Remember Myself";
     
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(user_logout)];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(userLogout)];
     UIBarButtonItem *item2 = [[UIBarButtonItem alloc] initWithTitle:@"Flash" style:UIBarButtonItemStylePlain target:self action:@selector(checkIsLogin)];
     self.navigationItem.leftBarButtonItem = item2;
     self.navigationItem.rightBarButtonItem = item;
@@ -33,36 +33,29 @@
     [self updateConstraints:nil];
 }
 
-- (void)user_logout {
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-    [manager POST:@"http://localhost:8000/users/user_logout/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if ([responseObject[@"state"] isEqual:@"success"]) {
+- (void)userLogout {
+
+    NSString *url = [NSString stringWithFormat:@"%@%@",GetConfigure(@"request_url",@"BaseURL",NO),
+                                                       GetConfigure(@"request_url",@"UserLogout",NO)];
+    [Tool postNetInfoWithPath:url andParams:nil besidesBlock:^(id obj) {
+        if ([obj[@"state"] isEqual:@"success"]) {
             UserLoginVC *loginVC = [[UserLoginVC alloc] init];
             [self presentViewController:loginVC animated:YES completion:nil];
         }
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-    }];
+    } failure:nil];
     
 }
 
 - (void)checkIsLogin {
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-    [manager POST:@"http://localhost:8000/users/is_login/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if ([responseObject[@"state"] isEqual:@"no"]) {
+
+    NSString *url = [NSString stringWithFormat:@"%@%@",GetConfigure(@"request_url",@"BaseURL",NO),
+                                                       GetConfigure(@"request_url",@"IsLogin",NO)];
+    [Tool postNetInfoWithPath:url andParams:nil besidesBlock:^(id obj) {
+        if ([obj[@"state"] isEqual:@"no"]) {
             UserLoginVC *loginVC = [[UserLoginVC alloc] init];
             [self presentViewController:loginVC animated:YES completion:nil];
         }
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-    }];
-    
+    } failure:nil];
 }
 
 - (void)addViews

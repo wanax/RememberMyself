@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UserLoginVC.h"
+
+@class UserLoginVC;
 
 @interface LoginGrade2VC : UIViewController
 

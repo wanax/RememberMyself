@@ -32,6 +32,8 @@
 		AB7E4E7E19A61FF7005D9AFB /* PresentingAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7E4E7C19A61FF7005D9AFB /* PresentingAnimator.m */; };
 		AB7E4E8019A62885005D9AFB /* Logo2.png in Resources */ = {isa = PBXBuildFile; fileRef = AB7E4E7F19A62885005D9AFB /* Logo2.png */; };
 		AB9FD26319A9A19F00D3B359 /* IndexVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9FD26219A9A19F00D3B359 /* IndexVC.m */; };
+		AB9FD26719A9BEA100D3B359 /* request_url.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB9FD26619A9BEA100D3B359 /* request_url.plist */; };
+		AB9FD26D19A9C02200D3B359 /* Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9FD26C19A9C02200D3B359 /* Tool.m */; };
 		ABD21F3D19A4D4530063FE3A /* CircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD21F3419A4D4530063FE3A /* CircleView.m */; };
 		ABD21F3E19A4D4530063FE3A /* FlatButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD21F3619A4D4530063FE3A /* FlatButton.m */; };
 		ABD21F3F19A4D4530063FE3A /* ImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD21F3819A4D4530063FE3A /* ImageView.m */; };
@@ -91,6 +93,10 @@
 		AB7E4E7F19A62885005D9AFB /* Logo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo2.png; sourceTree = "<group>"; };
 		AB9FD26119A9A19F00D3B359 /* IndexVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexVC.h; sourceTree = "<group>"; };
 		AB9FD26219A9A19F00D3B359 /* IndexVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexVC.m; sourceTree = "<group>"; };
+		AB9FD26619A9BEA100D3B359 /* request_url.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = request_url.plist; sourceTree = "<group>"; };
+		AB9FD26B19A9C02200D3B359 /* Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tool.h; sourceTree = "<group>"; };
+		AB9FD26C19A9C02200D3B359 /* Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tool.m; sourceTree = "<group>"; };
+		AB9FD26E19A9C51600D3B359 /* CommonlyMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonlyMacros.h; sourceTree = "<group>"; };
 		ABD21F3319A4D4530063FE3A /* CircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleView.h; sourceTree = "<group>"; };
 		ABD21F3419A4D4530063FE3A /* CircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleView.m; sourceTree = "<group>"; };
 		ABD21F3519A4D4530063FE3A /* FlatButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatButton.h; sourceTree = "<group>"; };
@@ -166,6 +172,8 @@
 		AB43A6D419A37B060090706A /* RemeberMe */ = {
 			isa = PBXGroup;
 			children = (
+				AB9FD26419A9BE7B00D3B359 /* Common */,
+				AB9FD26519A9BE7B00D3B359 /* PlistFile */,
 				AB7E4E7119A6144B005D9AFB /* Image */,
 				AB7E4E5E19A60E50005D9AFB /* Controller */,
 				AB7E4E5719A60D6B005D9AFB /* Application */,
@@ -299,6 +307,24 @@
 			path = Index;
 			sourceTree = "<group>";
 		};
+		AB9FD26419A9BE7B00D3B359 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				AB9FD26B19A9C02200D3B359 /* Tool.h */,
+				AB9FD26C19A9C02200D3B359 /* Tool.m */,
+				AB9FD26E19A9C51600D3B359 /* CommonlyMacros.h */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		AB9FD26519A9BE7B00D3B359 /* PlistFile */ = {
+			isa = PBXGroup;
+			children = (
+				AB9FD26619A9BEA100D3B359 /* request_url.plist */,
+			);
+			path = PlistFile;
+			sourceTree = "<group>";
+		};
 		ABD21F3219A4D4530063FE3A /* Controls */ = {
 			isa = PBXGroup;
 			children = (
@@ -406,6 +432,7 @@
 			files = (
 				AB7E4E7419A6144B005D9AFB /* Logo.png in Resources */,
 				AB43A6E719A37B060090706A /* Images.xcassets in Resources */,
+				AB9FD26719A9BEA100D3B359 /* request_url.plist in Resources */,
 				AB43A6D919A37B060090706A /* InfoPlist.strings in Resources */,
 				AB7E4E8019A62885005D9AFB /* Logo2.png in Resources */,
 			);
@@ -473,6 +500,7 @@
 				AB43A6DB19A37B060090706A /* main.m in Sources */,
 				ABD21F3F19A4D4530063FE3A /* ImageView.m in Sources */,
 				ABD21F3E19A4D4530063FE3A /* FlatButton.m in Sources */,
+				AB9FD26D19A9C02200D3B359 /* Tool.m in Sources */,
 				AB7E4E6C19A6106F005D9AFB /* UIFont+FlatUI.m in Sources */,
 				AB9FD26319A9A19F00D3B359 /* IndexVC.m in Sources */,
 				AB7E4E7E19A61FF7005D9AFB /* PresentingAnimator.m in Sources */,

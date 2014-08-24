@@ -91,14 +91,16 @@
 
 - (void)dismiss:(id)sender
 {
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSDictionary *parameters = @{
-                                 @"name": self.nameTextField.text,
-                                 @"pwd": self.pwdTextField.text
-                                 };
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-    [manager POST:@"http://localhost:8000/users/user_login/" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if ([responseObject[@"state"] isEqual:@"success"]) {
+    
+    NSDictionary *params = @{
+                             @"name": self.nameTextField.text,
+                             @"pwd": self.pwdTextField.text
+                             };
+    
+    NSString *url = [NSString stringWithFormat:@"%@%@",GetConfigure(@"request_url",@"BaseURL",NO),
+                     GetConfigure(@"request_url",@"UserLogin",NO)];
+    [Tool postNetInfoWithPath:url andParams:params besidesBlock:^(id obj) {
+        if ([obj[@"state"] isEqual:@"success"]) {
             [self dismissViewControllerAnimated:YES completion:^{
                 [self.parentVC dismissViewControllerAnimated:YES completion:nil];
             }];
@@ -106,10 +108,7 @@
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Login Error" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert show];
         }
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-    }];
+    } failure:nil];
 }
 
 @end
