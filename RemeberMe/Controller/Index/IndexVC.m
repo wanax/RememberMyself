@@ -54,7 +54,6 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     [manager POST:@"http://localhost:8000/users/is_login/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"%@", [responseObject JSONString]);
         if ([responseObject[@"state"] isEqual:@"no"]) {
             UserLoginVC *loginVC = [[UserLoginVC alloc] init];
             [self presentViewController:loginVC animated:YES completion:nil];
